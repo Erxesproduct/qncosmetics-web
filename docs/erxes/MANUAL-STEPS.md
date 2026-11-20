@@ -66,3 +66,14 @@ Steps:
 2. **Settings → Payments → Add → QPay (v2)**: enter them. Make a 100₮ test invoice in erxes.
 3. Copy the payment method's `_id` into Vercel as `ERXES_PAYMENT_IDS`.
 4. **Not yet tested** against a real QPay merchant. Do not call payments working until step 2 and 1.5 pass.
+
+## 1.3 eBarimt
+
+The website never makes a receipt. The checkout asks «Хувь хүн» or «Байгууллага» (7-digit registry number, checked on
+the server) and writes it on the order. The receipt is issued in erxes by staff after payment.
+
+1. Collect from the shop: company or person name and TIN (Zochil `regno` is empty), district code, VAT status,
+   product classification codes (cosmetics).
+2. Register for **PosAPI 3.0** (ebarimt.mn) and install the PosAPI service.
+3. **Settings → eBarimt**: PosAPI URL, TIN, district code, VAT switches; assign it to the website pipeline.
+4. For every paid order: issue the receipt once (goods + delivery fee) and send the lottery number.
