@@ -48,3 +48,21 @@ Steps:
    `QN-<productId>-<variantId>` (the same id the website sends with every order line), unit price and price before
    sale in MNT, brand.
 4. Spot-check 10 products (price, shade) against qncosmetics.mn.
+
+## 1.2 Payment (QPay)
+
+Zochil rule, word for word: «Захиалсан бараа бүтээгдэхүүний төлбөрийг 100% төлж баталгаажуулна.» Zochil has QPay on,
+but its QPay, Pocket and LendPay checkout methods all show `checkout_status: disabled`. The website:
+
+- records the order in erxes first, then creates a QPay invoice with the erxes payment plugin (`generateInvoiceUrl`,
+  public). The customer pays on the erxes payment page and returns to `/order/<reference>`, which asks `invoicesCheck`
+  every 5 s.
+- never asks for money for an order staff cannot see. Credit (Lend.mn, Pocketzero, 6 instalments) is described on
+  /info as available in the branches; it is not offered online.
+
+Steps:
+
+1. Get the shop's own QPay merchant credentials (`client_id`, `client_secret`, `invoice_code`) (open question 3).
+2. **Settings → Payments → Add → QPay (v2)**: enter them. Make a 100₮ test invoice in erxes.
+3. Copy the payment method's `_id` into Vercel as `ERXES_PAYMENT_IDS`.
+4. **Not yet tested** against a real QPay merchant. Do not call payments working until step 2 and 1.5 pass.
