@@ -1,0 +1,24 @@
+﻿code,name,parent code
+QN,Qn cosmetics,
+QN-SKIN,Арьс арчилгаа,QN
+QN-SKIN-1,Маск,QN-SKIN
+QN-SKIN-2,Цэвэрлэгээ,QN-SKIN
+QN-SKIN-3,"Тонер, серум",QN-SKIN
+QN-SKIN-4,"Ком, багц",QN-SKIN
+QN-SKIN-5,"Тос, крем",QN-SKIN
+QN-SKIN-6,Нарны тос,QN-SKIN
+QN-SKIN-7,"Бие, ванн",QN-SKIN
+QN-SKIN-8,Хүүхдэд,QN-SKIN
+QN-SKIN-9,Бусад,QN-SKIN
+QN-MAKEUP,Нүүр будалт,QN
+QN-MAKEUP-1,"Нүд, хөмсөг",QN-MAKEUP
+QN-MAKEUP-2,Нүүр,QN-MAKEUP
+QN-MAKEUP-3,"Багс, хэрэгсэл",QN-MAKEUP
+QN-MAKEUP-4,Уруул,QN-MAKEUP
+QN-MAKEUP-5,Будаг түгжигч,QN-MAKEUP
+QN-MAKEUP-6,Үнэртэй ус,QN-MAKEUP
+QN-HAIR,Үс арчилгаа,QN
+QN-HAIR-1,Арчилгаа,QN-HAIR
+QN-HAIR-2,Шампунь,QN-HAIR
+QN-HAIR-3,Үсний будаг,QN-HAIR
+QN-DELIVERY,Хүргэлт,QN
