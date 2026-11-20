@@ -77,3 +77,28 @@ the server) and writes it on the order. The receipt is issued in erxes by staff 
 2. Register for **PosAPI 3.0** (ebarimt.mn) and install the PosAPI service.
 3. **Settings → eBarimt**: PosAPI URL, TIN, district code, VAT switches; assign it to the website pipeline.
 4. For every paid order: issue the receipt once (goods + delivery fee) and send the lottery number.
+
+## 1.4 Delivery zones, fees and order statuses
+
+Website (done), from the Zochil delivery option, delivery rule, FAQ and terms:
+
+| Zochil | Website |
+| --- | --- |
+| Checkout option «Улаанбаатар / Үндсэн хүргэлт», **8,000₮**, no free limit (`price_limit` 0) | 8,000₮ on every order |
+| Delivery rule: «24-72цагын дотор … Хот дотор **7000₮** … Зуслан лагерлуу хүргэлт хийгдэхгүй» | 24–72 h and «no camps» shown everywhere; the rule text is shown word for word on /info |
+| FAQ: «УБ хот дотор **5000₮** … 24-48цагийн дотор» | FAQ shown word for word on /info |
+| Countryside switch on, but no option or fee | not offered online; the site asks to call 8602-1100 first (open question 2) |
+| Terms (agreement required): check colour and type, no returns | required checkbox at checkout; colour note on shade products; /info |
+
+**The three fees disagree (8,000 / 7,000 / 5,000₮).** The website charges what the Zochil checkout charged (8,000₮).
+Change it in `src/content/business.ts` (it reads `catalog.shop.zone`) and in the erxes delivery product once the shop
+confirms (open question 1).
+
+erxes:
+
+1. Import `docs/erxes/qncosmetics-delivery.csv` (`QN-DELIVERY-UB` 8,000₮).
+2. **Sales → Boards → «Онлайн захиалга» → pipeline «Вэбсайт»**, stages (as on the website):
+   Төлбөр хүлээгдэж байна → Баталгаажсан → Бэлдэж байна → Хүргэлтэд гарсан → Хүргэгдсэн, plus Цуцлагдсан.
+3. **Frontline → Forms → (order form) → Settings**: create a sales card in «Төлбөр хүлээгдэж байна» for every
+   submission. Staff move it to «Баталгаажсан» when the QPay invoice shows paid.
+4. SMS: Zochil has two order SMS templates (registered / confirmed). Recreate them in erxes (Automations → SMS).
