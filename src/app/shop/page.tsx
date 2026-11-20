@@ -87,7 +87,7 @@ export default async function Shop({ searchParams }: { searchParams: Promise<SP>
       </section>
 
       <div className="wrap">
-        <div className="sticky top-[104px] z-30 -mx-4 border-b border-line/60 bg-cream/92 px-4 py-3 backdrop-blur md:top-[112px] md:mx-0 md:mt-5 md:rounded-[24px] md:border md:px-4 lg:top-[164px]">
+        <div className="-mx-4 border-b border-line/60 bg-white px-4 py-3 md:mx-0 md:mt-5 md:rounded-[24px] md:border md:px-4">
           <Scroller small label="Ангилал" as="nav" className="no-scrollbar flex gap-2 overflow-x-auto">
             <Link href={href({ g: "", s: "", b: "", c: "" })} className="chip" aria-current={!group ? "true" : undefined}>
               Бүгд
